@@ -80,6 +80,142 @@ public class Dan {
         System.out.println(solve(0, 10));
     }
 }
+# task 4 HABR
+6.0. Конвертер температур
+Напишите класс BaseConverter для конвертации из градусов по Цельсию в
+Кельвины​, ​Фаренгейты​, и так далее. У класса должен быть метод convert, который
+и делает конвертацию.
+interface Converter {
+    double getConvertedValue(double baseValue);
+}
+
+class CelsiusConverter implements Converter {
+    @Override
+    public double getConvertedValue(double baseValue) {
+        return baseValue;
+    }
+}
+
+class KelvinConverter implements Converter {
+    @Override
+    public double getConvertedValue(double baseValue) {
+        return baseValue + 273.15;
+    }
+}
+
+class FahrenheitConverter implements Converter {
+    @Override
+    public double getConvertedValue(double baseValue) {
+        return 1.8 * baseValue + 32;
+    }
+}
+
+public class temp11 {
+    public static void main(String[] args) {
+        double temperature = 23.5;
+        System.out.println("t = " +
+                new CelsiusConverter().getConvertedValue(temperature));
+        System.out.println("t = " +
+                new KelvinConverter().getConvertedValue(temperature));
+        System.out.println("t = " +
+                new FahrenheitConverter().getConvertedValue(temperature));
+    }
+}
+# task 5 HABR
+1.1. Реализуйте алгоритм сортировки пузырьком для сортировки массива
+public class bublesort {
+    public static void main(String[] args) {
+        double[] array = {5.4, 3.2, 9.0, 1.1, 6.7};
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    double temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+}
+# task 6 HABR
+1.3. Удаление из массива
+Дан массив целых чисел и ещё одно целое число. Удалите все вхождения этого числа из массива (пропусков быть не должно).
+public class delmass {
+    public static void main(String[] args) {
+        int[] nums = {3, 2, 2, 3};
+        int val = 3;
+        int[] result = removeElement(nums, val);
+        System.out.print("Array after removing " + val + ": ");
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static int[] removeElement(int[] nums, int val) {
+        int count = 0;
+
+        // Сначала вычислим длину нового массива
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                count++;
+            }
+        }
+
+        int[] newArray = new int[count];
+        int offset = 0;
+
+        // Далее всё как в прошлых решениях,
+        // только запись идёт в новый массив
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                newArray[i - offset] = nums[i];
+            } else {
+                offset++;
+            }
+        }
+
+        return newArray;
+    }
+}
+# Example 1: ABCDEFGHIJKLMNOPQRSTUVWXYZ, посчитай количество
+public class Main {
+  public static void main(String[] args) {
+    String txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    System.out.println("The length of the txt string is: " + txt.length());
+  }
+}
+# Example 2: вывести 0, исключая 5
+import java.io.*;
+
+class stacktrease {
+    public static void main (String[] args) {
+        int a=5;
+        int b=0;
+        try{
+            System.out.println(a/b);
+        }
+        catch(ArithmeticException e){
+            e.printStackTrace();
+        }
+    }
+} 
+# Example 3: Массивте 4-орынды таңдап, исключение жасап catch қате жөнінде шығар
+class catcherror {
+
+    public static void main(String[] args)
+    {
+        int[] arr = new int[4];
+
+        int i = arr[4];
+
+        System.out.println("Hi, I want to execute");
+    }
+}
 # competition task 2
 import java.util.Scanner;
 
